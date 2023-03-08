@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  mysql_db:
+    container_name: mysql_ja
+    image: mysql:8
+    ports:
+      - 23306:3306
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=dwes
+      - MYSQL_USER=usuario
+      - MYSQL_PASSWORD=usuario
+
+  phpmyadmin:
+    container_name: "phpmyadmin_ja"
+    image: phpmyadmin:5.2.1-apache
+    ports:
+      - 8806:80
+    depends_on:
+      - mysql_db
+    environment:
+      - PMA_HOST=mysql_db
+      - PMA_ARBITRARY=1
+
