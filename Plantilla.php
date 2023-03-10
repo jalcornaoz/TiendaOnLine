@@ -30,9 +30,18 @@ class Plantilla
 
     private static function boton_editar_producto($codigo)
     {
-        $html_boton = "<form action=\"./editar.php\" method=\"post\">";
-        $html_boton .= "<input type=\"hidden\" name=\"codigo\" value=\"$codigo\">";
-        $html_boton .= "<button type=\"submit\" class=\"btn btn-light\" name=\"submit\" value=\"edit\">Editar producto</button>";
+        $html_boton = "<form action=\"./editar.php\" method=\"post\">\n";
+        $html_boton .= "<input type=\"hidden\" name=\"codigo\" value=\"$codigo\">\n";
+        $html_boton .= "<button type=\"submit\" class=\"btn btn-light\" name=\"submit\" value=\"edit\">Editar producto</button>\n";
+        $html_boton .= "</form>";
         return $html_boton;
+    }
+
+    public static function html_producto($producto)
+    {
+        $html_producto = "<form action=\"./sitio.php\" method=\"post\">";
+        $html_producto .= "<label for='nombre' class='form-label>Nombre</label>\n";
+        $html_producto .= "</form>\n";
+        return $html_producto;
     }
 }

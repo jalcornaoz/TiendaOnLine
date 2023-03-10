@@ -18,9 +18,9 @@ if (!isset($_SESSION['user'])) {
 
 $db = new DB();
 
-$codigo = $_POST['familia'] ?? "";
-$familias = $db->mostrar_familia();
-$mostrar_select_familias = Plantilla::html_select_familias($familias, $codigo);
+$familia = $_POST['familia'] ?? "";
+$familias = $db->mostrar_familias();
+$mostrar_select_familias = Plantilla::html_select_familias($familias, $familia);
 $usuario = $_SESSION['user'];
 
 $opcion_submit = $_POST['submit'] ?? "";
@@ -29,11 +29,16 @@ switch ($opcion_submit) {
         session_destroy();
         header("location:./index.php?msj=Te has desconectado correctamente.");
         exit();
+    case "update":
+        $producto = $_POST;
+        $db->actualizar_producto($producto);
+    case "cancel":
     case "list":
         $codigo = $_POST['familia'];
         $productos = $db->mostrar_producto($codigo);
         $mostrar_tabla_productos = Plantilla::html_table_productos($productos);
         break;
+
     default:
         $mostrar_tabla_productos = "";
 }
