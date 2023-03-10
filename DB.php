@@ -34,7 +34,7 @@ class DB
 
     public function mostrar_producto($codigo): array
     {
-        $sql_query = "select nombre_corto, pvp, descripcion from producto where familia='$codigo'";
+        $sql_query = "select nombre_corto, pvp, descripcion, cod from producto where familia='$codigo'";
         $resultado = $this->conexion->query($sql_query);
         $productos = $resultado->fetchAll(PDO::FETCH_ASSOC);
         return $productos;

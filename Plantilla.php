@@ -21,9 +21,18 @@ class Plantilla
     {
         $html_table = "<table class=\"table\">\n";
         foreach ($productos as $producto) {
-            $html_table .= "<tr>\n<th>$producto[nombre_corto]</th><td>$producto[descripcion]</td><td>$producto[pvp]</td></tr>\n";
+            $html_table .= "<tr>\n<th>$producto[nombre_corto]</th>\n<td>$producto[descripcion]</td>\n<td>$producto[pvp]</td>\n";
+            $html_table .= "<td>" . self::boton_editar_producto($producto['cod']) . "</td></tr>\n";
         }
         $html_table .= "</table>\n";
         return $html_table;
+    }
+
+    private static function boton_editar_producto($codigo)
+    {
+        $html_boton = "<form action=\"./editar.php\" method=\"post\">";
+        $html_boton .= "<input type=\"hidden\" name=\"codigo\" value=\"$codigo\">";
+        $html_boton .= "<button type=\"submit\" class=\"btn btn-light\" name=\"submit\" value=\"edit\">Editar producto</button>";
+        return $html_boton;
     }
 }
