@@ -32,7 +32,10 @@ switch ($opcion_submit) {
     case "update":
         $producto = $_POST;
         $filas = $db->actualizar_producto($producto);
-        $msj = "Se han actualizado $filas filas.<br>";
+        if ($filas < 0)
+            $msj = "Datos incorrectos. No se ha actualizado ninguna fila.";
+        else
+            $msj = "Se han actualizado $filas filas.<br>";
     case "cancel":
     case "list":
         $codigo = $_POST['familia'];

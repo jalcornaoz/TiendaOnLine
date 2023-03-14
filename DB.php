@@ -61,6 +61,7 @@ class DB
 
     public function actualizar_producto($producto)
     {
+        if (!is_numeric($producto['pvp'])) return -1;
         $sql_update = "UPDATE producto SET nombre_corto=?, pvp=?, descripcion=? WHERE cod=?";
         $valores = [$producto['nombre_corto'], $producto['pvp'], $producto['descripcion'], $producto['cod']];
         $resultado = $this->ejecutar_consulta($sql_update, $valores);
