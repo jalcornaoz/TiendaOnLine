@@ -60,7 +60,7 @@ $usuario = $_SESSION['user'];
                     <label for="pvp" class="form-label mt-2">P.V.P.</label>
                     <input type="text" class="form-control" id="pvp" name="pvp" value="<?= $producto['pvp'] ?>">
                     <label for="descripcion" class="form-label mt-2">Descripción</label>
-                    <textarea class="form-control" id="descripcion" name="description" rows="5"><?= $producto['descripcion'] ?></textarea>
+                    <textarea class="form-control" id="descripcion" name="descripcion" rows="5"><?= $producto['descripcion'] ?></textarea>
                     <input type="hidden" name="familia" value="<?= $producto['familia'] ?>">
                     <input type="hidden" name="cod" value="<?= $producto['cod'] ?>">
                     <button type="submit" class="btn btn-light m-3" name="submit" value="cancel">Cancelar</button>

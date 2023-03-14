@@ -50,7 +50,6 @@ class DB
 
     public function actualizar_producto($producto)
     {
-        var_dump($producto);
         $sql_update = $this->conexion->prepare("UPDATE producto SET nombre_corto=:codNombre, pvp=:codPvp, descripcion=:codDescripcion WHERE cod=:codCodigo");
         $sql_update->bindParam(":codNombre", $producto['nombre_corto']);
         $sql_update->bindParam(":codPvp", $producto['pvp']);
