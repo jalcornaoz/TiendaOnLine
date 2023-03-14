@@ -15,7 +15,7 @@ if (isset($_SESSION['user'])) {
     exit();
 }
 
-$msj = $_GET['msj'] ?? "";
+$msj = $_GET['msj'] ?? "Introduce tus datos para conectarte.";
 
 if (isset($_POST['submit'])) {
     //leer usuario y password

@@ -31,7 +31,8 @@ switch ($opcion_submit) {
         exit();
     case "update":
         $producto = $_POST;
-        $db->actualizar_producto($producto);
+        $filas = $db->actualizar_producto($producto);
+        $msj = "Se han actualizado $filas filas.<br>";
     case "cancel":
     case "list":
         $codigo = $_POST['familia'];
@@ -74,6 +75,7 @@ switch ($opcion_submit) {
         </div>
     </header>
     <div class="container">
+        <p><span class="bg-dark text-danger m-3"><?= $msj ?? "" ?></span></p>
         <fieldset class="mt-5">
             <legend>Familias de productos</legend>
             <form action="./sitio.php" method="post">
