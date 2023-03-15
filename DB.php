@@ -33,7 +33,7 @@ class DB
             return false;
     }
 
-    public function mostrar_familias(): array
+    public function get_familias(): array
     {
         $sql_query = "select cod, nombre from familia";
         $resultado = $this->ejecutar_consulta($sql_query);
@@ -41,7 +41,7 @@ class DB
         return $familias;
     }
 
-    public function mostrar_producto($familia): array
+    public function get_productos($familia): array
     {
         $sql_query = "select nombre_corto, pvp, descripcion, cod from producto where familia=?";
         $valores = [$familia];
@@ -50,7 +50,7 @@ class DB
         return $productos;
     }
 
-    public function producto($codigo): array
+    public function get_producto($codigo): array
     {
         $sql_query = "SELECT nombre_corto, pvp, descripcion, cod, familia FROM producto WHERE cod=?";
         $valores = [$codigo];

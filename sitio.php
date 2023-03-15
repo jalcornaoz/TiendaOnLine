@@ -19,7 +19,7 @@ if (!isset($_SESSION['user'])) {
 $db = new DB();
 
 $familia = $_POST['familia'] ?? "";
-$familias = $db->mostrar_familias();
+$familias = $db->get_familias();
 $mostrar_select_familias = Plantilla::html_select_familias($familias, $familia);
 $usuario = $_SESSION['user'];
 
@@ -39,7 +39,7 @@ switch ($opcion_submit) {
     case "cancel":
     case "list":
         $codigo = $_POST['familia'];
-        $productos = $db->mostrar_producto($codigo);
+        $productos = $db->get_productos($codigo);
         $mostrar_tabla_productos = Plantilla::html_table_productos($productos);
         break;
 

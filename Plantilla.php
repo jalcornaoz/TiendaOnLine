@@ -36,12 +36,4 @@ class Plantilla
         $html_boton .= "</form>";
         return $html_boton;
     }
-
-    public static function html_producto($producto)
-    {
-        $html_producto = "<form action=\"./sitio.php\" method=\"post\">";
-        $html_producto .= "<label for='nombre' class='form-label>Nombre</label>\n";
-        $html_producto .= "</form>\n";
-        return $html_producto;
-    }
 }

@@ -18,7 +18,7 @@ if (!isset($_SESSION['user'])) {
 $db = new DB();
 
 $codigo = $_POST['codigo'] ?? "";
-$producto = $db->producto($codigo);
+$producto = $db->get_producto($codigo);
 
 $usuario = $_SESSION['user'];
 
