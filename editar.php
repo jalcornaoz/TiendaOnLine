@@ -1,26 +1,16 @@
 <?php
-require_once "./conexion.php";
-
-ini_set('display_errors', true);
-error_reporting(E_ALL);
-
-$carga_clase = fn ($clase) => require("$clase.php");
-spl_autoload_register($carga_clase);
-
-session_start();
+require_once "./inicializa.php";
 
 //miro si no estoy loggeado
 if (!isset($_SESSION['user'])) {
     header("location:./index.php?msj=Debes conectarte para acceder.");
     exit();
 }
+$usuario = $_SESSION['user'];
 
 $db = new DB();
-
 $codigo = $_POST['codigo'] ?? "";
 $producto = $db->get_producto($codigo);
-
-$usuario = $_SESSION['user'];
 
 ?>
 

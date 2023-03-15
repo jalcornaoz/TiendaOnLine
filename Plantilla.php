@@ -3,12 +3,12 @@
 class Plantilla
 {
 
-    public static function html_select_familias($familias, $codigo)
+    public static function html_select_familias($familias, $cod_familia)
     {
         $html_select = "<select class=\"form-select\" name=\"familia\">\n";
         $html_select .= "<option>Productos</option>\n";
         foreach ($familias as $familia) {
-            if ($codigo == $familia['cod'])
+            if ($cod_familia == $familia['cod'])
                 $html_select .= "<option value=$familia[cod] selected>$familia[nombre]</option>\n";
             else
                 $html_select .= "<option value=$familia[cod]>$familia[nombre]</option>\n";
